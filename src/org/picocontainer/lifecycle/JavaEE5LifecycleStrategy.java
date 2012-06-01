@@ -10,8 +10,6 @@ package org.picocontainer.lifecycle;
 import org.picocontainer.ComponentMonitor;
 import org.picocontainer.PicoLifecycleException;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -38,7 +36,8 @@ public final class JavaEE5LifecycleStrategy extends AbstractMonitoringLifecycleS
 
     /** {@inheritDoc} **/
     public void start(final Object component) {
-        doLifecycleMethod(component, PostConstruct.class, true);
+//        doLifecycleMethod(component, PostConstruct.class, true);
+    	throw new UnsupportedOperationException();
     }
 
 	/** {@inheritDoc} **/
@@ -47,7 +46,8 @@ public final class JavaEE5LifecycleStrategy extends AbstractMonitoringLifecycleS
 
     /** {@inheritDoc} **/
     public void dispose(final Object component) {
-        doLifecycleMethod(component, PreDestroy.class, false);
+//        doLifecycleMethod(component, PreDestroy.class, false);
+    	throw new UnsupportedOperationException();
     }
 
     private void doLifecycleMethod(final Object component, Class<? extends Annotation> annotation, boolean superFirst) {
@@ -98,9 +98,11 @@ public final class JavaEE5LifecycleStrategy extends AbstractMonitoringLifecycleS
         Method[] methods = type.getDeclaredMethods();
         for (int i = 0; i < methods.length; i++) {
             Method method = methods[i];
-            if (method.isAnnotationPresent(PreDestroy.class) || method.isAnnotationPresent(PostConstruct.class)) {
-                return true;
-            }
+//            if (method.isAnnotationPresent(PreDestroy.class) || method.isAnnotationPresent(PostConstruct.class)) {
+//                return true;
+//            }
+
+        	throw new UnsupportedOperationException();
         }
         return false;
     }

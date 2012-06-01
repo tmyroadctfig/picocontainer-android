@@ -1,7 +1,6 @@
 package org.picocontainer.injectors;
 
 import com.thoughtworks.paranamer.AdaptiveParanamer;
-import com.thoughtworks.paranamer.AnnotationParanamer;
 import com.thoughtworks.paranamer.CachingParanamer;
 import com.thoughtworks.paranamer.Paranamer;
 import org.picocontainer.ComponentMonitor;
@@ -139,7 +138,7 @@ public abstract class IterativeInjector<T> extends AbstractInjector<T> {
 
     protected NameBinding makeParameterNameImpl(AccessibleObject member) {
         if (paranamer == null) {
-            paranamer = new CachingParanamer(new AnnotationParanamer(new AdaptiveParanamer()));
+//            paranamer = new CachingParanamer(new AnnotationParanamer(new AdaptiveParanamer()));
         }
         return new ParameterNameBinding(paranamer,  member, 0);
     }

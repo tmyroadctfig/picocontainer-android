@@ -9,8 +9,6 @@
  *****************************************************************************/
 package org.picocontainer.behaviors;
 
-import java.beans.PropertyEditor;
-import java.beans.PropertyEditorManager;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
@@ -215,11 +213,11 @@ public class PropertyApplicator<T> extends AbstractBehavior<T> {
             return loadClass(classLoader, value);
         } else {
             final Class<?> clazz = loadClass(classLoader, typeName);
-            final PropertyEditor editor = PropertyEditorManager.findEditor(clazz);
-            if (editor != null) {
-                editor.setAsText(value);
-                return editor.getValue();
-            }
+//            final PropertyEditor editor = PropertyEditorManager.findEditor(clazz);
+//            if (editor != null) {
+//                editor.setAsText(value);
+//                return editor.getValue();
+//            }
         }
         return null;
     }

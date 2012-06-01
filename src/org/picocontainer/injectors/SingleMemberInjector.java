@@ -9,7 +9,6 @@
 package org.picocontainer.injectors;
 
 import com.thoughtworks.paranamer.AdaptiveParanamer;
-import com.thoughtworks.paranamer.AnnotationParanamer;
 import com.thoughtworks.paranamer.CachingParanamer;
 import com.thoughtworks.paranamer.Paranamer;
 import java.lang.annotation.Annotation;
@@ -45,7 +44,7 @@ public abstract class SingleMemberInjector<T> extends AbstractInjector<T> {
 
     protected Paranamer getParanamer() {
         if (paranamer == null) {
-            paranamer = new CachingParanamer(new AnnotationParanamer(new AdaptiveParanamer()));
+//            paranamer = new CachingParanamer(new AnnotationParanamer(new AdaptiveParanamer()));
         }
         return paranamer;
     }
